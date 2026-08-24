@@ -35,27 +35,27 @@ Aviation checklists are **critical safety barriers** engineered around specific 
 │ LEAVING HOME & PRE-DEPARTURE                            [CHK-HOME] │
 │ MODE: DO-VERIFY  |  PAUSE TRIGGER: Hand on front door knob         │
 ├────────────────────────────────────────────────────────────────────┤
-│ TACTILE FLOW: Clockwise room sweep (Kitchen -> Bedroom -> Office)  │
+│ TACTILE FLOW: Clockwise room sweep (Kitchen / Bed / Office / Hall) │
 ├────────────────────────────────────────────────────────────────────┤
-│ ▼ PHASE 1: FIRE & UTILITIES HAZARD SWEEP                           │
-│ [!] STOVE & OVEN ................... ZERO FLAME / KNOBS OFF / COLD │
+│ >> PHASE 1: FIRE & UTILITIES HAZARD SWEEP                          │
+│ [!] STOVE & OVEN .................... ZERO FLAME / KNOBS OFF / CO. │
 │ [ ] COFFEE MAKER & KETTLE .................. UNPLUGGED / BASE COLD │
 │ [ ] IRON & HAIR TOOLS ........................... UNPLUGGED & SAFE │
 │ [ ] WINDOWS & BALCONY ........................... CLOSED & LATCHED │
 │ [!] FAUCETS & RUNNING WATER ................ ZERO DRIP / FULLY OFF │
 ├────────────────────────────────────────────────────────────────────┤
-│ ▼ PHASE 2: DIGITAL & POWER SECURITY                                │
+│ >> PHASE 2: DIGITAL & POWER SECURITY                               │
 │ [ ] WORKSTATION MONITORS ............................ LOCKED / OFF │
 │ [ ] TAILSCALE REMOTE ACCESS .............. CONNECTED (PING PVE OK) │
-│ [ ] PHONE BATTERY ...................... > 50% OR POWERBANK PACKED │
+│ [ ] PHONE BATTERY .................... MIN 50% OR POWERBANK PACKED │
 ├────────────────────────────────────────────────────────────────────┤
-│ ▼ PHASE 3: BODY & POCKET CROSS-CHECK (POINT & TOUCH)               │
+│ >> PHASE 3: BODY & POCKET CROSS-CHECK (POINT & TOUCH)              │
 │ [!] PHYSICAL KEYS (HOME + BIKE/CAR) ...... TOUCHED IN RIGHT POCKET │
 │ [!] WALLET & ID / PAYMENT CARDS ........... TOUCHED IN LEFT POCKET │
 │ [!] SMARTPHONE .................................. IN HAND / POCKET │
 │ [!] FRONT DOOR LOCK .................... DEADBOLT ENGAGED / TESTED │
 ├────────────────────────────────────────────────────────────────────┤
-│ AVIATION SAFETY STANDARD  •  POINT & VERIFY  •  DO NOT GUESS       │
+│ AVIATION SAFETY STANDARD  |  POINT & VERIFY  |  DO NOT GUESS       │
 └────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -66,24 +66,24 @@ Aviation checklists are **critical safety barriers** engineered around specific 
 │ SOFTWARE RELEASE & DEPLOYMENT VERIFICATION           [CHK-RELEASE] │
 │ MODE: DO-VERIFY  |  PAUSE TRIGGER: Prior to git push origin main / │
 ├────────────────────────────────────────────────────────────────────┤
-│ TACTILE FLOW: Source tree clean -> Build -> Test -> Security Scan  │
+│ TACTILE FLOW: Source tree clean / Build / Test / Scan / Package    │
 ├────────────────────────────────────────────────────────────────────┤
-│ ▼ PHASE 1: WORKING TREE & CLEANLINESS                              │
+│ >> PHASE 1: WORKING TREE & CLEANLINESS                             │
 │ [!] GIT WORKING TREE .................... CLEAN (NO UNTRACKED/PYC) │
 │ [!] SECRETS & API KEYS ................. 0 IN CODE (.GITIGNORE OK) │
 │ [ ] VERSION & CHANGELOG ....................... BUMPED IN MANIFEST │
 ├────────────────────────────────────────────────────────────────────┤
-│ ▼ PHASE 2: AUTOMATED QUALITY GATE                                  │
-│ [!] TEST SUITE (CARGO/PYTEST) ......... PASS (0 FAILS / 0 ERRORS) │
+│ >> PHASE 2: AUTOMATED QUALITY GATE                                 │
+│ [!] TEST SUITE (CARGO/PYTEST) .......... PASS (0 FAILS / 0 ERRORS) │
 │ [ ] LINTER & TYPECHECK ........................ CLEAN (0 WARNINGS) │
 │ [ ] DOCS & COMPILED PDFS ....................... REBUILT & CURRENT │
 ├────────────────────────────────────────────────────────────────────┤
-│ ▼ PHASE 3: ROLLBACK PLAN & RELEASE HANDOFF                         │
+│ >> PHASE 3: ROLLBACK PLAN & RELEASE HANDOFF                        │
 │ [!] SCHEMA / MIGRATIONS ...................... TESTED & COMPATIBLE │
 │ [!] ROLLBACK COMMIT SHA ...................... RECORDED & VERIFIED │
 │ [ ] TODO.MD / LOG.MD SYNC .............. LOGGED UNDER TODAY'S DATE │
 ├────────────────────────────────────────────────────────────────────┤
-│ AVIATION SAFETY STANDARD  •  POINT & VERIFY  •  DO NOT GUESS       │
+│ AVIATION SAFETY STANDARD  |  POINT & VERIFY  |  DO NOT GUESS       │
 └────────────────────────────────────────────────────────────────────┘
 ```
 

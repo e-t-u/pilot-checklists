@@ -63,11 +63,11 @@ python3 ~/.agents/skills/pilot-checklists/scripts/checklist_cli.py run leaving_h
 # Print ASCII formatted pocket card to terminal / markdown
 python3 ~/.agents/skills/pilot-checklists/scripts/checklist_cli.py card software_release
 
-# Generate print-ready A5 vector PDF card (148 x 210 mm)
+# Generate print-ready A5 Landscape vector PDF card (210 x 148 mm)
 python3 ~/.agents/skills/pilot-checklists/scripts/checklist_cli.py pdf leaving_home -o ~/leaving_home_A5.pdf
 
-# Generate all 7 cards into a directory as A5 PDFs
-python3 ~/.agents/skills/pilot-checklists/scripts/checklist_cli.py pdf-all -d ./pdf/ --theme print
+# Generate all 7 cards into a directory as A5 Landscape PDFs
+python3 ~/.agents/skills/pilot-checklists/scripts/checklist_cli.py pdf-all -d ./pdf/ --size a5 --orientation landscape
 ```
 
 ---
