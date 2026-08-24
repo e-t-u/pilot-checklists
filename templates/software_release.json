@@ -1,0 +1,34 @@
+{
+  "title": "Software Release & Deployment Verification",
+  "code": "CHK-RELEASE",
+  "mode": "DO-VERIFY",
+  "trigger": "Prior to git push origin main / release packaging",
+  "flow_pattern": "Source tree clean / Build / Test / Scan / Package",
+  "immediate_memory_actions": [],
+  "phases": [
+    {
+      "name": "Phase 1: Working Tree & Cleanliness",
+      "items": [
+        {"challenge": "GIT WORKING TREE", "response": "CLEAN (NO UNTRACKED/PYC)", "killer": true},
+        {"challenge": "SECRETS & API KEYS", "response": "0 IN CODE (.GITIGNORE OK)", "killer": true},
+        {"challenge": "VERSION & CHANGELOG", "response": "BUMPED IN MANIFEST", "killer": false}
+      ]
+    },
+    {
+      "name": "Phase 2: Automated Quality Gate",
+      "items": [
+        {"challenge": "TEST SUITE (CARGO/PYTEST)", "response": "PASS (0 FAILS / 0 ERRORS)", "killer": true},
+        {"challenge": "LINTER & TYPECHECK", "response": "CLEAN (0 WARNINGS)", "killer": false},
+        {"challenge": "DOCS & COMPILED PDFS", "response": "REBUILT & CURRENT", "killer": false}
+      ]
+    },
+    {
+      "name": "Phase 3: Rollback Plan & Release Handoff",
+      "items": [
+        {"challenge": "SCHEMA / MIGRATIONS", "response": "TESTED & COMPATIBLE", "killer": true},
+        {"challenge": "ROLLBACK COMMIT SHA", "response": "RECORDED & VERIFIED", "killer": true},
+        {"challenge": "TODO.MD / LOG.MD SYNC", "response": "LOGGED UNDER TODAY'S DATE", "killer": false}
+      ]
+    }
+  ]
+}

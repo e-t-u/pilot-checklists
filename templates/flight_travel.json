@@ -1,0 +1,35 @@
+{
+  "title": "International Flight & Airport Transit",
+  "code": "CHK-FLIGHT",
+  "mode": "READ-AND-DO",
+  "trigger": "T-3 hours before airport departure",
+  "flow_pattern": "Top-to-bottom luggage / document check",
+  "immediate_memory_actions": [],
+  "phases": [
+    {
+      "name": "Phase 1: Critical Documents & Identity",
+      "items": [
+        {"challenge": "PASSPORT VALIDITY", "response": "MIN 6 MONTHS REMAINING", "killer": true},
+        {"challenge": "BOARDING PASS / QR", "response": "SAVED OFFLINE (WALLET/PDF)", "killer": true},
+        {"challenge": "VISA / ENTRY PASS (EVOA)", "response": "SUBMITTED & BARCODE OK", "killer": true},
+        {"challenge": "PAYMENT CARDS", "response": "INTL USE UNLOCKED IN APP", "killer": false}
+      ]
+    },
+    {
+      "name": "Phase 2: Carry-On Luggage Compliance",
+      "items": [
+        {"challenge": "CRITICAL MEDICATIONS", "response": "IN CARRY-ON (NOT CHECKED)", "killer": true},
+        {"challenge": "POWERBANKS (LI-ION)", "response": "MAX 100WH / IN CABIN BAG", "killer": true},
+        {"challenge": "LIQUIDS & GELS", "response": "MAX 100ML IN ZIPLOCK BAG", "killer": false},
+        {"challenge": "LAPTOP & CHARGERS", "response": "QUICK-ACCESS FOR TSA", "killer": false}
+      ]
+    },
+    {
+      "name": "Phase 3: Network & Gateway Handoff",
+      "items": [
+        {"challenge": "ESIM / ROAMING PLAN", "response": "ACTIVE / PRE-LOADED", "killer": false},
+        {"challenge": "VPN PROFILES (EE/FI/TS)", "response": "NET-PROFILE VERIFIED", "killer": false}
+      ]
+    }
+  ]
+}

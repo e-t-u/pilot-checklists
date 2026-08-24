@@ -1,0 +1,33 @@
+{
+  "title": "Evening Workday Shutdown & Mental Offload",
+  "code": "CHK-SHUTDOWN",
+  "mode": "DO-VERIFY",
+  "trigger": "Completing work session / 30m before sleep",
+  "flow_pattern": "Completed work log / Tabs cleanup / Device charging",
+  "immediate_memory_actions": [],
+  "phases": [
+    {
+      "name": "Phase 1: Finish-Line Capture & Logging",
+      "items": [
+        {"challenge": "COMPLETED TASKS IN ~/TODO.MD", "response": "MOVED TO ~/LOG.MD", "killer": true},
+        {"challenge": "TOMORROW'S 1-MIN FIRST STEP", "response": "DEFINED IN ~/TODO.MD", "killer": true}
+      ]
+    },
+    {
+      "name": "Phase 2: Digital Working Memory Purge",
+      "items": [
+        {"challenge": "OPEN BROWSER TABS OVERFLOW", "response": "PURGED / BOOKMARKED", "killer": false},
+        {"challenge": "GIT COMMITS & UNPUSHED WORK", "response": "WIP COMMITTED & PUSHED", "killer": true},
+        {"challenge": "RUNAWAY TERMINAL PROCESSES", "response": "STOPPED / DAEMONIZED", "killer": false}
+      ]
+    },
+    {
+      "name": "Phase 3: Hardware Reset & Launchpad",
+      "items": [
+        {"challenge": "PRIMARY PHONE & WATCH", "response": "PLUGGED INTO CHARGER", "killer": true},
+        {"challenge": "MORNING WAKE-UP ALARMS", "response": "ARMED & VERIFIED", "killer": true},
+        {"challenge": "BEDSIDE WATER BOTTLE", "response": "FILLED & READY", "killer": false}
+      ]
+    }
+  ]
+}

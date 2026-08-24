@@ -1,0 +1,33 @@
+{
+  "title": "Homelab & Proxmox Server Maintenance",
+  "code": "CHK-HOMELAB",
+  "mode": "READ-AND-DO",
+  "trigger": "Before apt upgrade, container update, or network change",
+  "flow_pattern": "Backup verify / Dry run / Isolated run / Health audit",
+  "immediate_memory_actions": [],
+  "phases": [
+    {
+      "name": "Phase 1: Pre-Maintenance Safety Net",
+      "items": [
+        {"challenge": "PBS / PROXMOX BACKUP", "response": "GREEN / BACKUP VERIFIED", "killer": true},
+        {"challenge": "CONTAINER / VM SNAPSHOT", "response": "CREATED WITH TAG", "killer": true},
+        {"challenge": "PING BASELINE (.123.0/24)", "response": "B1 & CONTAINERS OK", "killer": false}
+      ]
+    },
+    {
+      "name": "Phase 2: Change Execution & Testing",
+      "items": [
+        {"challenge": "CONFIG / DOTFILE BACKUP", "response": "COPIED TO .BAK / GIT", "killer": true},
+        {"challenge": "SYSTEMD SERVICE UNITS", "response": "ACTIVE / 0 FAILED UNITS", "killer": true},
+        {"challenge": "NGINX REVERSE PROXY", "response": "NGINX -T TEST PASSED", "killer": true}
+      ]
+    },
+    {
+      "name": "Phase 3: Post-Maintenance Verification",
+      "items": [
+        {"challenge": "HOMELAB DASHBOARD (WEB)", "response": "PORT 5000 LIVE & OK", "killer": false},
+        {"challenge": "TAILSCALE / SSH ACCESS", "response": "ACCESSIBLE VIA EXT ROUTE", "killer": true}
+      ]
+    }
+  ]
+}

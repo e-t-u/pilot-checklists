@@ -1,0 +1,36 @@
+{
+  "title": "Abnormal / Overwhelm Freeze Emergency Reset",
+  "code": "QRH-OVERWHELM",
+  "mode": "EMERGENCY / READ-AND-DO",
+  "trigger": "Acute overwhelm, paralysis, or sensory overload",
+  "flow_pattern": "Somatic regulation / Single micro-step / Scope reduction",
+  "immediate_memory_actions": [
+    {"challenge": "HANDS OFF SCREEN / KEYBOARD", "response": "STAND UP & STEP BACK 2M"},
+    {"challenge": "BOX BREATHING (4S-4S-4S)", "response": "3 CYCLES COMPLETED"},
+    {"challenge": "COLD WATER SIP / FACE SPLASH", "response": "SWALLOWED / COOLED"}
+  ],
+  "phases": [
+    {
+      "name": "Phase 1: Somatic & Sensory Grounding",
+      "items": [
+        {"challenge": "5-4-3-2-1 SENSORY SWEEP", "response": "5 SIGHTS / 4 TOUCH / 3 SOUND", "killer": true},
+        {"challenge": "JAW & SHOULDER TENSION", "response": "UNCLENCHED & DROPPED", "killer": false}
+      ]
+    },
+    {
+      "name": "Phase 2: Radical Scope Reduction",
+      "items": [
+        {"challenge": "OBLIGATIONS HORIZON", "response": "PAUSED (ONLY NEXT 10M EXIST)", "killer": true},
+        {"challenge": "ALL BACKGROUND WINDOWS", "response": "MINIMIZED / HIDDEN", "killer": false},
+        {"challenge": "1-MINUTE ENTRY STEP", "response": "WRITTEN ON SCRATCHPAD", "killer": true}
+      ]
+    },
+    {
+      "name": "Phase 3: Zero-Resistance Re-Entry",
+      "items": [
+        {"challenge": "PERFECTIONISM CRITIC", "response": "DISARMED (UGLY DRAFT OK)", "killer": true},
+        {"challenge": "TIMER (5 MINUTES)", "response": "SET (CAN STOP AFTER 5M)", "killer": true}
+      ]
+    }
+  ]
+}

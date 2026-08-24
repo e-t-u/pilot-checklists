@@ -1,0 +1,33 @@
+{
+  "title": "ADHD Daily Morning Focus Launch",
+  "code": "CHK-LAUNCH",
+  "mode": "DO-VERIFY",
+  "trigger": "Sitting down at desk with morning beverage",
+  "flow_pattern": "Physical body check / Calendar horizon / Single micro-step",
+  "immediate_memory_actions": [],
+  "phases": [
+    {
+      "name": "Phase 1: Physiological & Sensory Baseline",
+      "items": [
+        {"challenge": "HYDRATION & WATER GLASS", "response": "FULL & ON DESK", "killer": false},
+        {"challenge": "MORNING MEDICATION / VITAMINS", "response": "TAKEN & LOGGED", "killer": true},
+        {"challenge": "HEADPHONES / AUDIO ENVIRONMENT", "response": "ANC ON / FOCUS SOUNDTRACK READY", "killer": false}
+      ]
+    },
+    {
+      "name": "Phase 2: Temporal Horizon Scan",
+      "items": [
+        {"challenge": "GOOGLE CALENDAR COMMITMENTS", "response": "NEXT 24H SCANNED (BUFFERS OK)", "killer": true},
+        {"challenge": "HIGH PRIORITY TARGET IN TODO", "response": "1 SINGLE PRIMARY MISSION", "killer": true}
+      ]
+    },
+    {
+      "name": "Phase 3: Hyperfocus Catalyst (Friction-Free Entry)",
+      "items": [
+        {"challenge": "1-MINUTE FIRST SMALL STEP", "response": "WRITTEN DOWN (ZERO FRICTION)", "killer": true},
+        {"challenge": "DESK WORKSPACE SURFACE", "response": "CLEAR OF STRAY CLUTTER", "killer": false},
+        {"challenge": "PHONE & SLACK NOTIFICATIONS", "response": "DO NOT DISTURB / MUTED", "killer": true}
+      ]
+    }
+  ]
+}

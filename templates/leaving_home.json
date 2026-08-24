@@ -1,0 +1,37 @@
+{
+  "title": "Leaving Home & Pre-Departure",
+  "code": "CHK-HOME",
+  "mode": "DO-VERIFY",
+  "trigger": "Hand on front door knob",
+  "flow_pattern": "Clockwise room sweep (Kitchen / Bed / Office / Hall)",
+  "immediate_memory_actions": [],
+  "phases": [
+    {
+      "name": "Phase 1: Fire & Utilities Hazard Sweep",
+      "items": [
+        {"challenge": "STOVE & OVEN", "response": "ZERO FLAME / KNOBS OFF / COLD", "killer": true},
+        {"challenge": "COFFEE MAKER & KETTLE", "response": "UNPLUGGED / BASE COLD", "killer": false},
+        {"challenge": "IRON & HAIR TOOLS", "response": "UNPLUGGED & SAFE", "killer": false},
+        {"challenge": "WINDOWS & BALCONY", "response": "CLOSED & LATCHED", "killer": false},
+        {"challenge": "FAUCETS & RUNNING WATER", "response": "ZERO DRIP / FULLY OFF", "killer": true}
+      ]
+    },
+    {
+      "name": "Phase 2: Digital & Power Security",
+      "items": [
+        {"challenge": "WORKSTATION MONITORS", "response": "LOCKED / OFF", "killer": false},
+        {"challenge": "TAILSCALE REMOTE ACCESS", "response": "CONNECTED (PING PVE OK)", "killer": false},
+        {"challenge": "PHONE BATTERY", "response": "MIN 50% OR POWERBANK PACKED", "killer": false}
+      ]
+    },
+    {
+      "name": "Phase 3: Body & Pocket Cross-Check (Point & Touch)",
+      "items": [
+        {"challenge": "PHYSICAL KEYS (HOME + BIKE/CAR)", "response": "TOUCHED IN RIGHT POCKET", "killer": true},
+        {"challenge": "WALLET & ID / PAYMENT CARDS", "response": "TOUCHED IN LEFT POCKET", "killer": true},
+        {"challenge": "SMARTPHONE", "response": "IN HAND / POCKET", "killer": true},
+        {"challenge": "FRONT DOOR LOCK", "response": "DEADBOLT ENGAGED / TESTED", "killer": true}
+      ]
+    }
+  ]
+}
