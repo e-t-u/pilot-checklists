@@ -1,6 +1,6 @@
 # Pilot Checklists (`pilot-checklists`)
 
-Aviation-grade checklist generator, runner, and card rendering engine based on commercial airline Quick Reference Handbooks (QRH / FCOM), NASA human factors engineering (Degani & Wiener), and strict Challenge-Response protocols.
+Aviation-type checklist generator, runner, and card rendering engine based on commercial airline Quick Reference Handbooks (QRH / FCOM), NASA human factors engineering (Degani & Wiener), and strict Challenge-Response protocols.
 
 Designed to eliminate cognitive overload, prevent task omission errors, combat ADHD working memory drop-off, and guarantee flawless execution under stress or fatigue.
 
@@ -122,9 +122,8 @@ pilot-checklist pdf morning_launch -o morning.pdf
 
 ### 3. Agent Skill Integration (Google Antigravity / Claude Code / Cursor)
 
-This repository includes [`SKILL.md`](./SKILL.md), allowing AI coding assistants to automatically generate, validate, and execute aviation-grade checklist cards according to NASA human factors standards.
+This repository includes [`SKILL.md`](./SKILL.md), allowing AI coding assistants to automatically generate, validate, and execute aviation-type checklist cards according to NASA human factors standards.
 
-To install as an Antigravity agent skill:
 ```bash
 mkdir -p ~/.agents/skills/pilot-checklists
 cp -r * ~/.agents/skills/pilot-checklists/
@@ -134,17 +133,19 @@ cp -r * ~/.agents/skills/pilot-checklists/
 
 ## Built-In Checklist Library
 
-Templates are located in [`templates/`](./templates/):
+Templates are located in [`templates/`](./templates/). All checklist cards are pre-compiled and available in print-ready vector PDF format under [`pdf/`](./pdf/):
+- **A5 Landscape Knee-board Format ($210 \times 148\text{ mm}$):** [`pdf/*.pdf`](./pdf/)
+- **A6 Landscape Pocket Card Format ($148 \times 105\text{ mm}$):** [`pdf/a6_landscape/*.pdf`](./pdf/a6_landscape/)
 
-| Code | Name | Mode | Focus Area |
-| :--- | :--- | :--- | :--- |
-| `CHK-HOME` | **Leaving Home** | Do-Verify | Fire hazards, faucets, windows, workstation lock, 3-pocket tactile pat-down (keys, wallet, phone, deadbolt) |
-| `CHK-FLIGHT` | **International Flight** | Read-and-Do | Passport validity, offline boarding passes, carry-on meds, lithium powerbank limits, network handoff |
-| `CHK-RELEASE` | **Software Release** | Do-Verify | Clean git tree, zero committed secrets, green tests, version bumps, rollback commit SHA |
-| `CHK-LAUNCH` | **Morning Focus Launch** | Do-Verify | ADHD sensory baseline, hydration, meds, calendar scan, 1-minute friction-free micro-step |
-| `CHK-SHUTDOWN` | **Evening Shutdown** | Do-Verify | Task completion logging, tab purge, unpushed WIP commit, device charging, wake-up alarms |
-| `CHK-HOMELAB` | **Homelab Maintenance** | Read-and-Do | Proxmox/PBS backups, container snapshots, ping baseline, config diffs, service unit health |
-| `QRH-OVERWHELM` | **Overwhelm / Freeze QRH** | Emergency | Somatic regulation (box breathing, cold water), 5-4-3-2-1 grounding, radical scope reduction |
+| Code | Name | Mode | Focus Area | Formats |
+| :--- | :--- | :--- | :--- | :--- |
+| `CHK-HOME` | **Leaving Home** | Do-Verify | Fire hazards, faucets, windows, workstation lock, 3-pocket tactile pat-down (keys, wallet, phone, deadbolt) | [A5 PDF](./pdf/leaving_home.pdf) / [A6 PDF](./pdf/a6_landscape/leaving_home.pdf) |
+| `CHK-FLIGHT` | **International Flight** | Read-and-Do | Passport validity, offline boarding passes, carry-on meds, lithium powerbank limits, network handoff | [A5 PDF](./pdf/flight_travel.pdf) / [A6 PDF](./pdf/a6_landscape/flight_travel.pdf) |
+| `CHK-RELEASE` | **Software Release** | Do-Verify | Clean git tree, zero committed secrets, green tests, version bumps, rollback commit SHA | [A5 PDF](./pdf/software_release.pdf) / [A6 PDF](./pdf/a6_landscape/software_release.pdf) |
+| `CHK-LAUNCH` | **Morning Focus Launch** | Do-Verify | ADHD sensory baseline, hydration, meds, calendar scan, 1-minute friction-free micro-step | [A5 PDF](./pdf/morning_launch.pdf) / [A6 PDF](./pdf/a6_landscape/morning_launch.pdf) |
+| `CHK-SHUTDOWN` | **Evening Shutdown** | Do-Verify | Task completion logging, tab purge, unpushed WIP commit, device charging, wake-up alarms | [A5 PDF](./pdf/evening_shutdown.pdf) / [A6 PDF](./pdf/a6_landscape/evening_shutdown.pdf) |
+| `CHK-HOMELAB` | **Homelab Maintenance** | Read-and-Do | Proxmox/PBS backups, container snapshots, ping baseline, config diffs, service unit health | [A5 PDF](./pdf/homelab_maintenance.pdf) / [A6 PDF](./pdf/a6_landscape/homelab_maintenance.pdf) |
+| `QRH-OVERWHELM` | **Overwhelm / Freeze QRH** | Emergency | Somatic regulation (box breathing, cold water), 5-4-3-2-1 grounding, radical scope reduction | [A5 PDF](./pdf/panic_freeze_qrh.pdf) / [A6 PDF](./pdf/a6_landscape/panic_freeze_qrh.pdf) |
 
 ---
 

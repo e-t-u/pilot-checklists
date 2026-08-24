@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pilot-checklists"
 version = "0.1.0"
-description = "Aviation-grade checklist generator and runner based on NASA human factors and airline QRH standards"
+description = "Aviation-type checklist generator and runner based on NASA human factors and airline QRH standards"
 readme = "README.md"
 authors = [{ name = "Eetu" }]
 license = { text = "MIT" }

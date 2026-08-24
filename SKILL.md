@@ -1,13 +1,13 @@
 ---
 name: pilot-checklists
-description: "Aviation-grade checklist generator and runner based on airline Quick Reference Handbooks (QRH), NASA human factors engineering, and Challenge-Response protocols. Creates perfectly chunked, killer-item-isolated checklist cards for ADHD memory support, pre-flight travel, code deployment, homelab maintenance, leaving home, and morning/evening routines."
+description: "Aviation-type checklist generator and runner based on airline Quick Reference Handbooks (QRH), NASA human factors engineering, and Challenge-Response protocols. Creates perfectly chunked, killer-item-isolated checklist cards for ADHD memory support, pre-flight travel, code deployment, homelab maintenance, leaving home, and morning/evening routines."
 ---
 
-# Aviation-Grade Checklist Skill (`pilot-checklists`)
+# Aviation-Type Checklist Skill (`pilot-checklists`)
 
 ## Overview
 
-The `pilot-checklists` skill transforms standard to-do lists and procedural instructions into **aviation-grade checklist cards**. Based on human factors research from NASA (Degani & Wiener), commercial airline Quick Reference Handbooks (QRH / FCOM), and *The Checklist Manifesto*, this skill eliminates cognitive overload, combats ADHD task omission / working memory drop-off, and guarantees flawless execution under fatigue or stress.
+The `pilot-checklists` skill transforms standard to-do lists and procedural instructions into **aviation-type checklist cards**. Based on human factors research from NASA (Degani & Wiener), commercial airline Quick Reference Handbooks (QRH / FCOM), and *The Checklist Manifesto*, this skill eliminates cognitive overload, combats ADHD task omission / working memory drop-off, and guarantees flawless execution under fatigue or stress.
 
 ---
 

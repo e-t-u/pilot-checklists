@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Aviation-Grade Checklist Engine & Card Generator
+Aviation-Type Checklist Engine & Card Generator
 Implements NASA / FAA / QRH human factors checklist principles:
 - Challenge - Response format with dot-leaders
 - Do-Verify vs Read-and-Do execution modes
