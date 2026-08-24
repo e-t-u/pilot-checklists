@@ -45,8 +45,8 @@ def load_checklist(filepath_or_name: str) -> Dict[str, Any]:
         return json.load(f)
 
 
-def format_dot_leader(challenge: str, response: str, target_width: int = 58) -> str:
-    max_resp_len = 28
+def format_dot_leader(challenge: str, response: str, target_width: int = 62) -> str:
+    max_resp_len = 36
     if len(response) > max_resp_len:
         resp_display = response[:max_resp_len - 1] + "."
     else:
@@ -65,6 +65,41 @@ def format_dot_leader(challenge: str, response: str, target_width: int = 58) -> 
     return f"{ch_display} {dots} {resp_display}"
 
 
+def format_challenge_title(text: str) -> str:
+    acronyms = {"ID", "QR", "TSA", "EVOA", "PBS", "VM", "PVE", "SSH", "PDF", "API", "WIP", "ANC", "GIT", "DB", "EE", "FI", "TS", "EE/FI/TS", "LI-ION", "1-MIN", "1-MINUTE", "SHA", "TODO.MD", "LOG.MD"}
+    words = text.split(" ")
+    formatted = []
+    for w in words:
+        if w.startswith("~/"):
+            formatted.append(w)
+            continue
+        if w.lower() in {"&", "/", "+", "->", "to", "or", "in", "of", "and", "the", "for"}:
+            formatted.append(w.lower() if w != "&" else "&")
+            continue
+        # Split on slashes or pluses if compound
+        if "/" in w and not w.startswith("("):
+            parts = [p.upper() if p.upper() in acronyms else p.capitalize() for p in w.split("/")]
+            formatted.append("/".join(parts))
+            continue
+        # Extract leading punctuation
+        prefix = ""
+        while w and not w[0].isalnum():
+            prefix += w[0]
+            w = w[1:]
+        suffix = ""
+        while w and not w[-1].isalnum():
+            suffix = w[-1] + suffix
+            w = w[:-1]
+        if "/" in w:
+            w_cap = "/".join([p.upper() if p.upper() in acronyms else p.capitalize() for p in w.split("/")])
+        elif w.upper() in acronyms:
+            w_cap = w.upper()
+        else:
+            w_cap = w.capitalize()
+        formatted.append(prefix + w_cap + suffix)
+    return " ".join(formatted)
+
+
 def render_markdown_card(data: Dict[str, Any]) -> str:
     title = data.get("title", "CHECKLIST CARD").upper()
     code = data.get("code", "CHK-01")
@@ -81,22 +116,22 @@ def render_markdown_card(data: Dict[str, Any]) -> str:
         if len(content) > INNER_WIDTH:
             content = content[:INNER_WIDTH]
         pad = INNER_WIDTH - len(content)
-        return f"│ {content}{' ' * pad} │"
+        return f"| {content}{' ' * pad} |"
 
     lines = []
     lines.append("```text")
-    lines.append("┌" + "─" * (BOX_WIDTH - 2) + "┐")
+    lines.append("+" + "-" * (BOX_WIDTH - 2) + "+")
 
     code_tag = f"[{code}]"
     t_space = INNER_WIDTH - len(code_tag) - 3
     t_str = title[:t_space]
     lines.append(pad_line(f"{t_str}{' ' * (INNER_WIDTH - len(t_str) - len(code_tag))}{code_tag}"))
     lines.append(pad_line(f"MODE: {mode}  |  PAUSE TRIGGER: {trigger}"))
-    lines.append("├" + "─" * (BOX_WIDTH - 2) + "┤")
+    lines.append("+" + "-" * (BOX_WIDTH - 2) + "+")
 
     if flow:
         lines.append(pad_line(f"TACTILE FLOW: {flow}"))
-        lines.append("├" + "─" * (BOX_WIDTH - 2) + "┤")
+        lines.append("+" + "-" * (BOX_WIDTH - 2) + "+")
 
     if memory_actions:
         lines.append(pad_line("BOLDFACE (IMMEDIATE MEMORY ACTIONS - EXECUTE BEFORE CARD):"))
@@ -105,25 +140,25 @@ def render_markdown_card(data: Dict[str, Any]) -> str:
             resp = item.get("response", "").upper()
             row = format_dot_leader(ch, resp, INNER_WIDTH - 4)
             lines.append(pad_line(f" * {row}"))
-        lines.append("├" + "─" * (BOX_WIDTH - 2) + "┤")
+        lines.append("+" + "-" * (BOX_WIDTH - 2) + "+")
 
     for p_idx, phase in enumerate(phases):
         p_name = phase.get("name", f"PHASE {p_idx+1}").upper()
         lines.append(pad_line(f">> {p_name}"))
         items = phase.get("items", [])
         for it in items:
-            ch = it.get("challenge", "").upper()
+            ch = format_challenge_title(it.get("challenge", ""))
             resp = it.get("response", "").upper()
             killer = it.get("killer", False)
             prefix = "[!] " if killer else "[ ] "
             row = format_dot_leader(ch, resp, INNER_WIDTH - 4)
             lines.append(pad_line(f"{prefix}{row}"))
         if p_idx < len(phases) - 1:
-            lines.append("├" + "─" * (BOX_WIDTH - 2) + "┤")
+            lines.append("+" + "-" * (BOX_WIDTH - 2) + "+")
 
-    lines.append("├" + "─" * (BOX_WIDTH - 2) + "┤")
+    lines.append("+" + "-" * (BOX_WIDTH - 2) + "+")
     lines.append(pad_line("AVIATION SAFETY STANDARD  |  POINT & VERIFY  |  DO NOT GUESS"))
-    lines.append("└" + "─" * (BOX_WIDTH - 2) + "┘")
+    lines.append("+" + "-" * (BOX_WIDTH - 2) + "+")
     lines.append("```")
     return "\n".join(lines)
 
@@ -461,29 +496,6 @@ def render_html_card(
         html += f"""    <div class="flow-box">TACTILE FLOW: {flow}</div>\n"""
 
     html += """    <div class="content-area">\n"""
-
-    def format_challenge_title(text: str) -> str:
-        acronyms = {"ID", "QR", "TSA", "EVOA", "PBS", "VM", "PVE", "SSH", "PDF", "API", "WIP", "ANC", "GIT", "DB", "EE", "FI", "TS", "EE/FI/TS", "LI-ION"}
-        words = text.split(" ")
-        formatted = []
-        for w in words:
-            # Check inside parens e.g. (li-ion) or (ee/fi/ts)
-            if w.startswith("(") and w.endswith(")"):
-                inner = w[1:-1]
-                if inner.upper() in acronyms or "/" in inner:
-                    parts = [p.upper() if p.upper() in acronyms else p.capitalize() for p in inner.split("/")]
-                    formatted.append(f"({'/'.join(parts)})")
-                    continue
-            w_clean = w.strip("(),/")
-            if w_clean.upper() in acronyms:
-                formatted.append(w.upper())
-            elif w.startswith("~/"):
-                formatted.append(w)
-            elif w.lower() in {"&", "/", "+", "->", "to", "or", "in", "of", "and", "the", "for"}:
-                formatted.append(w.lower() if w != "&" else "&")
-            else:
-                formatted.append(w.capitalize())
-        return " ".join(formatted)
 
     def render_section(phase_obj):
         p_name = phase_obj.get("name", "").upper()

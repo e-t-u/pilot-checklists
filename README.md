@@ -31,60 +31,60 @@ Aviation checklists are **critical safety barriers** engineered around specific 
 ### Leaving Home & Pre-Departure (`CHK-HOME`)
 
 ```text
-┌────────────────────────────────────────────────────────────────────┐
-│ LEAVING HOME & PRE-DEPARTURE                            [CHK-HOME] │
-│ MODE: DO-VERIFY  |  PAUSE TRIGGER: Hand on front door knob         │
-├────────────────────────────────────────────────────────────────────┤
-│ TACTILE FLOW: Clockwise room sweep (Kitchen / Bed / Office / Hall) │
-├────────────────────────────────────────────────────────────────────┤
-│ >> PHASE 1: FIRE & UTILITIES HAZARD SWEEP                          │
-│ [!] STOVE & OVEN .................... ZERO FLAME / KNOBS OFF / CO. │
-│ [ ] COFFEE MAKER & KETTLE .................. UNPLUGGED / BASE COLD │
-│ [ ] IRON & HAIR TOOLS ........................... UNPLUGGED & SAFE │
-│ [ ] WINDOWS & BALCONY ........................... CLOSED & LATCHED │
-│ [!] FAUCETS & RUNNING WATER ................ ZERO DRIP / FULLY OFF │
-├────────────────────────────────────────────────────────────────────┤
-│ >> PHASE 2: DIGITAL & POWER SECURITY                               │
-│ [ ] WORKSTATION MONITORS ............................ LOCKED / OFF │
-│ [ ] TAILSCALE REMOTE ACCESS .............. CONNECTED (PING PVE OK) │
-│ [ ] PHONE BATTERY .................... MIN 50% OR POWERBANK PACKED │
-├────────────────────────────────────────────────────────────────────┤
-│ >> PHASE 3: BODY & POCKET CROSS-CHECK (POINT & TOUCH)              │
-│ [!] PHYSICAL KEYS (HOME + BIKE/CAR) ...... TOUCHED IN RIGHT POCKET │
-│ [!] WALLET & ID / PAYMENT CARDS ........... TOUCHED IN LEFT POCKET │
-│ [!] SMARTPHONE .................................. IN HAND / POCKET │
-│ [!] FRONT DOOR LOCK .................... DEADBOLT ENGAGED / TESTED │
-├────────────────────────────────────────────────────────────────────┤
-│ AVIATION SAFETY STANDARD  |  POINT & VERIFY  |  DO NOT GUESS       │
-└────────────────────────────────────────────────────────────────────┘
++--------------------------------------------------------------------+
+| LEAVING HOME & PRE-DEPARTURE                            [CHK-HOME] |
+| MODE: DO-VERIFY  |  PAUSE TRIGGER: Hand on front door knob         |
++--------------------------------------------------------------------+
+| TACTILE FLOW: Clockwise room sweep (Kitchen / Bed / Office / Hall) |
++--------------------------------------------------------------------+
+| >> PHASE 1: FIRE & UTILITIES HAZARD SWEEP                          |
+| [!] Stove & Oven ................... ZERO FLAME / KNOBS OFF / COLD |
+| [ ] Coffee Maker & Kettle .................. UNPLUGGED / BASE COLD |
+| [ ] Iron & Hair Tools ........................... UNPLUGGED & SAFE |
+| [ ] Windows & Balcony ........................... CLOSED & LATCHED |
+| [!] Faucets & Running Water ................ ZERO DRIP / FULLY OFF |
++--------------------------------------------------------------------+
+| >> PHASE 2: DIGITAL & POWER SECURITY                               |
+| [ ] Workstation Monitors ............................ LOCKED / OFF |
+| [ ] Tailscale Remote Access .............. CONNECTED (PING PVE OK) |
+| [ ] Phone Battery .................... MIN 50% OR POWERBANK PACKED |
++--------------------------------------------------------------------+
+| >> PHASE 3: BODY & POCKET CROSS-CHECK (POINT & TOUCH)              |
+| [!] Physical Keys (Home + Bike/Car) ...... TOUCHED IN RIGHT POCKET |
+| [!] Wallet & ID / Payment Cards ........... TOUCHED IN LEFT POCKET |
+| [!] Smartphone .................................. IN HAND / POCKET |
+| [!] Front Door Lock .................... DEADBOLT ENGAGED / TESTED |
++--------------------------------------------------------------------+
+| AVIATION SAFETY STANDARD  |  POINT & VERIFY  |  DO NOT GUESS       |
++--------------------------------------------------------------------+
 ```
 
 ### Software Release & Deployment Gate (`CHK-RELEASE`)
 
 ```text
-┌────────────────────────────────────────────────────────────────────┐
-│ SOFTWARE RELEASE & DEPLOYMENT VERIFICATION           [CHK-RELEASE] │
-│ MODE: DO-VERIFY  |  PAUSE TRIGGER: Prior to git push origin main / │
-├────────────────────────────────────────────────────────────────────┤
-│ TACTILE FLOW: Source tree clean / Build / Test / Scan / Package    │
-├────────────────────────────────────────────────────────────────────┤
-│ >> PHASE 1: WORKING TREE & CLEANLINESS                             │
-│ [!] GIT WORKING TREE .................... CLEAN (NO UNTRACKED/PYC) │
-│ [!] SECRETS & API KEYS ................. 0 IN CODE (.GITIGNORE OK) │
-│ [ ] VERSION & CHANGELOG ....................... BUMPED IN MANIFEST │
-├────────────────────────────────────────────────────────────────────┤
-│ >> PHASE 2: AUTOMATED QUALITY GATE                                 │
-│ [!] TEST SUITE (CARGO/PYTEST) .......... PASS (0 FAILS / 0 ERRORS) │
-│ [ ] LINTER & TYPECHECK ........................ CLEAN (0 WARNINGS) │
-│ [ ] DOCS & COMPILED PDFS ....................... REBUILT & CURRENT │
-├────────────────────────────────────────────────────────────────────┤
-│ >> PHASE 3: ROLLBACK PLAN & RELEASE HANDOFF                        │
-│ [!] SCHEMA / MIGRATIONS ...................... TESTED & COMPATIBLE │
-│ [!] ROLLBACK COMMIT SHA ...................... RECORDED & VERIFIED │
-│ [ ] TODO.MD / LOG.MD SYNC .............. LOGGED UNDER TODAY'S DATE │
-├────────────────────────────────────────────────────────────────────┤
-│ AVIATION SAFETY STANDARD  |  POINT & VERIFY  |  DO NOT GUESS       │
-└────────────────────────────────────────────────────────────────────┘
++--------------------------------------------------------------------+
+| SOFTWARE RELEASE & DEPLOYMENT VERIFICATION           [CHK-RELEASE] |
+| MODE: DO-VERIFY  |  PAUSE TRIGGER: Prior to git push origin main / |
++--------------------------------------------------------------------+
+| TACTILE FLOW: Source tree clean / Build / Test / Scan / Package    |
++--------------------------------------------------------------------+
+| >> PHASE 1: WORKING TREE & CLEANLINESS                             |
+| [!] GIT Working Tree .................... CLEAN (NO UNTRACKED/PYC) |
+| [!] Secrets & API Keys ................. 0 IN CODE (.GITIGNORE OK) |
+| [ ] Version & Changelog ....................... BUMPED IN MANIFEST |
++--------------------------------------------------------------------+
+| >> PHASE 2: AUTOMATED QUALITY GATE                                 |
+| [!] Test Suite (Cargo/Pytest) .......... PASS (0 FAILS / 0 ERRORS) |
+| [ ] Linter & Typecheck ........................ CLEAN (0 WARNINGS) |
+| [ ] Docs & Compiled Pdfs ....................... REBUILT & CURRENT |
++--------------------------------------------------------------------+
+| >> PHASE 3: ROLLBACK PLAN & RELEASE HANDOFF                        |
+| [!] Schema / Migrations ...................... TESTED & COMPATIBLE |
+| [!] Rollback Commit SHA ...................... RECORDED & VERIFIED |
+| [ ] TODO.MD / LOG.MD Sync .............. LOGGED UNDER TODAY'S DATE |
++--------------------------------------------------------------------+
+| AVIATION SAFETY STANDARD  |  POINT & VERIFY  |  DO NOT GUESS       |
++--------------------------------------------------------------------+
 ```
 
 ---
